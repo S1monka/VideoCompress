@@ -202,7 +202,7 @@ public class SwiftVideoCompressPlugin: NSObject, FlutterPlugin {
         
         let session = getComposition(isIncludeAudio, timeRange, sourceVideoTrack!)
         
-        let exporter = AVAssetExportSession(asset: session, presetName: getExportPreset(quality))!
+        let exporter = AVAssetExportSession(asset: session, presetName: getExportPreset(quality))
         
         exporter.outputURL = compressionUrl
         exporter.outputFileType = AVFileType.mp4

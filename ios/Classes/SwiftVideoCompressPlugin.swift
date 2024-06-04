@@ -134,7 +134,7 @@ public class SwiftVideoCompressPlugin: NSObject, FlutterPlugin {
     
     
     @objc private func updateProgress(timer:Timer) {
-        let asset = timer.userInfo as! AVAssetExportSession
+        let asset: AVAssetExportSession = timer.userInfo as! AVAssetExportSession
         if(!stopCommand) {
             channel.invokeMethod("updateProgress", arguments: "\(String(describing: asset.progress * 100))")
         }
@@ -202,7 +202,7 @@ public class SwiftVideoCompressPlugin: NSObject, FlutterPlugin {
         
         let session = getComposition(isIncludeAudio, timeRange, sourceVideoTrack!)
         
-        let exporter = AVAssetExportSession(asset: session, presetName: getExportPreset(quality))
+        let exporter: AVAssetExportSession! = AVAssetExportSession(asset: session, presetName: getExportPreset(quality))
         
         exporter.outputURL = compressionUrl
         exporter.outputFileType = AVFileType.mp4
